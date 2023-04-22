@@ -5,10 +5,11 @@
   transition: all 250ms ease;
 
 }
+
 .loader {
     --duration: 2.7s;
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     position: relative;
     &:before {
         content: '';
@@ -138,6 +139,7 @@
 }
 
 html {
+
     -webkit-font-smoothing: antialiased;
 }
 
@@ -151,13 +153,17 @@ html {
 
 // Center & dribbble
 .loader_page {
-    min-height: 100vh;
-    min-width: 100vw;
+    height: 100%;
+    width: 100%;
     background: var(--background-color);
     position: absolute;
+    top: 0;
+    bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    margin: 0 auto;
     .dribbble {
         position: absolute;
         display: block;

@@ -9,10 +9,9 @@ import { fetchCountries } from './fetchCountries';
 
 const inputEl = document.getElementById('search-box');
 const listEl = document.querySelector('.country');
-const info = document.querySelector('.country-info');
 
-const handleSearchCountry = event => {
-  const searchCountry = event.target.value.trim();
+const handleSearchCountry = e => {
+  const searchCountry = e.target.value.trim();
   listEl.innerHTML = '';
 
   if (searchCountry !== '') {
@@ -37,7 +36,7 @@ const handleSearchCountry = event => {
         }
         if (data.length > 10) {
           Notiflix.Notify.info(
-            'Too many matches found. Please enter a more specific name.'
+            'Se encontraron demasiadas coincidencias. Introduzca un nombre más específico.'
           );
         }
         if (data.length === 1) {
@@ -61,19 +60,14 @@ const handleSearchCountry = event => {
         }
       })
       .catch(error => {
-        Notiflix.Notify.failure('Oops, there is no country with that name');
+        Notiflix.Notify.failure('Vaya, no hay ningún país con ese nombre');
       });
   }
 };
-const DEBOUNCE_DELAY = 300;
+const DEBOUNCE_DELAY = 500;
 
 inputEl.addEventListener(
   'input',
   debounce(handleSearchCountry, DEBOUNCE_DELAY)
 );
 
-
-
-
-
-{/*  */}
